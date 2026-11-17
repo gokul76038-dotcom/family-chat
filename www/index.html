@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Family Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="authScreen" class="screen active">
+  <div class="hero">
+    <div class="logo">🏡</div>
+    <h1>Family Chat</h1>
+    <p>நம்ம குடும்பத்துக்கு மட்டும்</p>
+  </div>
+  <div class="card">
+    <input id="dname" placeholder="உங்க பெயர் (புது Account-க்கு மட்டும்)">
+    <input id="uid" placeholder="User ID (எ.கா. gokul)" autocapitalize="none" autocomplete="username">
+    <input id="pw" type="password" placeholder="Password (குறைந்தது 6)" autocomplete="current-password">
+    <button id="btnLogin" class="primary">Login</button>
+    <button id="btnSignup" class="ghost">புது Account உருவாக்கு</button>
+    <div id="authErr" class="err"></div>
+  </div>
+</div>
+
+<div id="listScreen" class="screen">
+  <header>
+    <div class="title">Family Chat</div>
+    <button id="btnLogout" class="icon" title="Logout">⎋</button>
+  </header>
+  <div id="contacts"></div>
+  <div id="noContacts" class="empty">இன்னும் யாரும் சேரல.<br>அவங்க App-ல Account உருவாக்கிய பிறகு இங்க தெரிவாங்க.</div>
+</div>
+
+<div id="chatScreen" class="screen">
+  <header>
+    <button id="btnBack" class="icon">←</button>
+    <div id="chatAvatar" class="avatar"></div>
+    <div class="title" id="chatName"></div>
+    <button id="btnVoice" class="icon" title="Voice call">📞</button>
+    <button id="btnVideo" class="icon" title="Video call">🎥</button>
+  </header>
+  <div id="msgs"></div>
+  <div id="upl" class="upl hidden"></div>
+  <div class="bar">
+    <button id="btnAttach" class="icon dark">📎</button>
+    <input id="file" type="file" class="hidden">
+    <input id="txt" placeholder="மெசேஜ் டைப் பண்ணுங்க" autocomplete="off">
+    <button id="btnSend" class="send">➤</button>
+  </div>
+</div>
+
+<div id="callScreen" class="overlay hidden">
+  <video id="remoteVideo" autoplay playsinline></video>
+  <video id="localVideo" autoplay playsinline muted></video>
+  <div class="callTop">
+    <div id="callAvatar" class="avatar big"></div>
+    <div id="callName" class="callName"></div>
+    <div id="callStatus" class="callStatus"></div>
+  </div>
+  <div class="callBtns">
+    <button id="btnMute" class="round">🎤</button>
+    <button id="btnCam" class="round">📷</button>
+    <button id="btnHang" class="round red">📵</button>
+  </div>
+</div>
+
+<div id="incoming" class="overlay hidden incoming">
+  <div id="inAvatar" class="avatar big"></div>
+  <div id="inName" class="callName"></div>
+  <div id="inType" class="callStatus"></div>
+  <div class="callBtns">
+    <button id="btnDecline" class="round red">📵</button>
+    <button id="btnAccept" class="round green">📞</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
